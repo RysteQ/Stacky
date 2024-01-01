@@ -1,6 +1,6 @@
 ﻿# Stacky
 
-Stacky is a stack based interpreted language that I made in a few hours as a stepping stone in my journey to interpreters. Stacky is a simple language, only compromising of 19 instructions with 16 of them requiring no operands at all with the stack being 64 kilobytes in size.
+Stacky is a stack based interpreted language that I made in a few hours as a stepping stone in my journey to interpreters. Stacky is a simple language, only compromising of 21 instructions with 18 of them requiring no operands at all and the stack being 64 kilobytes in size.
 
 The instructions are as follows
 
@@ -24,6 +24,14 @@ The instructions are as follows
 	<tr>
 		<td>POPPC</td>
 		<td>Pops the last value pushed from the stack and prints out the ASCII character</td>
+	</tr>
+	<tr>
+		<td>INC</td>
+		<td>Pops the last value pushed from the stack, increments it, and pushes it back into the stack</td>
+	</tr>
+	<tr>
+		<td>DEC</td>
+		<td>Pops the last value pushed from the stack, decrements it, and pushes it back into the stack</td>
 	</tr>
 	<tr>
 		<td>ADD</td>

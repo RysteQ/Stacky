@@ -17,6 +17,8 @@ public static class Runner
                 case Opcode.POP: POP(); break;
                 case Opcode.POPP: POPP(); break;
                 case Opcode.POPPC: POPPC(); break;
+                case Opcode.INC: INC(); break;
+                case Opcode.DEC: DEC(); break;
                 case Opcode.ADD: ADD(); break;
                 case Opcode.SUB: SUB(); break;
                 case Opcode.MUL: MUL(); break;
@@ -42,6 +44,8 @@ public static class Runner
     private static void POP() => stack.Pop();
     private static void POPP() => Console.Write(stack.Pop());
     private static void POPPC() => Console.Write((char)stack.Pop());
+    private static void INC() => stack.Push((byte)(stack.Pop() + 1));
+    private static void DEC() => stack.Push((byte)(stack.Pop() - 1));
     private static void ADD() => stack.Push((byte)(stack.Pop() + stack.Pop()));
     private static void SUB() => stack.Push((byte)(stack.Pop() - stack.Pop()));
     private static void MUL() => stack.Push((byte)(stack.Pop() * stack.Pop()));

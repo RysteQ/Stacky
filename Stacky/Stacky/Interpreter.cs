@@ -62,6 +62,8 @@ public static class Interpreter
         Opcode.POP,
         Opcode.POPP,
         Opcode.POPPC,
+        Opcode.INC,
+        Opcode.DEC,
         Opcode.ADD,
         Opcode.SUB,
         Opcode.MUL,

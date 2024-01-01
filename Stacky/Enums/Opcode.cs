@@ -4,6 +4,8 @@
     POP,
     POPP,
     POPPC,
+    INC,
+    DEC,
     ADD,
     SUB,
     MUL,
