@@ -20,6 +20,5 @@
     NEWL,
     HAULT,
 
-    LABEL,
     NON
 }

@@ -1,6 +1,6 @@
-﻿using Stacky.Models;
+﻿using Stacky.src.Models;
 
-namespace Stacky.Stacky;
+namespace Stacky.src.Stacky;
 
 public static class Interpreter
 {
@@ -17,14 +17,16 @@ public static class Interpreter
 
                 if (NO_OPERAND_OPCODES.Contains(Enum.Parse<Opcode>(lines[i])) == false)
                     return new(false, i + 1);
-            } else if (lines[i].Contains(' '))
+            }
+            else if (lines[i].Contains(' '))
             {
                 if (IsOpcodeValid(lines[i].Split(' ')[0]) == false || IsValueValid(lines[i].Split(' ')[1]) == false)
                     return new(false, i + 1);
 
                 if (OPERAND_OPCODES.Contains(Enum.Parse<Opcode>(lines[i].Split(' ')[0])) == false)
                     return new(false, i + 1);
-            } else
+            }
+            else
             {
                 return new(false, i + 1);
             }
@@ -72,8 +74,7 @@ public static class Interpreter
         Opcode.CMPG,
         Opcode.JMP,
         Opcode.RPUSH,
-        Opcode.NEWL,
-        Opcode.LABEL
+        Opcode.NEWL
     };
 
     private static readonly Opcode[] OPERAND_OPCODES = new Opcode[]

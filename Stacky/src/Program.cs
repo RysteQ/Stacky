@@ -1,6 +1,6 @@
-﻿using Stacky.Models;
-using Stacky.Services;
-using Stacky.Stacky;
+﻿using Stacky.src.Models;
+using Stacky.src.Services;
+using Stacky.src.Stacky;
 
 if (Environment.GetCommandLineArgs().Length != 2)
 {
@@ -17,8 +17,7 @@ if (status.Success == false)
 {
     ErrorInformer.Inform($"Error at line {status.LineOfFailure}", ConsoleColor.Red);
     Environment.Exit(-1);
-}
-else
+} else
     instructions = Interpreter.Analyze(file_data);
 
 try

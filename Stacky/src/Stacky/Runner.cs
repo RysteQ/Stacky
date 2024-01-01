@@ -1,6 +1,6 @@
-﻿using Stacky.Models;
+﻿using Stacky.src.Models;
 
-namespace Stacky.Stacky;
+namespace Stacky.src.Stacky;
 
 public static class Runner
 {
@@ -38,15 +38,15 @@ public static class Runner
     }
 
     private static void PUSH(byte value) => stack.Push(value);
-    private static void RPUSH() => stack.Push((byte) Console.ReadKey().KeyChar);
+    private static void RPUSH() => stack.Push((byte)Console.ReadKey().KeyChar);
     private static void POP() => stack.Pop();
-    private static void POPP() => Console.WriteLine(stack.Pop());
-    private static void POPPC() => Console.WriteLine((char) stack.Pop());
-    private static void ADD() => stack.Push((byte) (stack.Pop() + stack.Pop()));
-    private static void SUB() => stack.Push((byte) (stack.Pop() - stack.Pop()));
-    private static void MUL() => stack.Push((byte) (stack.Pop() * stack.Pop()));
-    private static void DIV() => stack.Push((byte) (stack.Pop() / stack.Pop()));
-    private static void MOD() => stack.Push((byte) (stack.Pop() % stack.Pop()));
+    private static void POPP() => Console.Write(stack.Pop());
+    private static void POPPC() => Console.Write((char)stack.Pop());
+    private static void ADD() => stack.Push((byte)(stack.Pop() + stack.Pop()));
+    private static void SUB() => stack.Push((byte)(stack.Pop() - stack.Pop()));
+    private static void MUL() => stack.Push((byte)(stack.Pop() * stack.Pop()));
+    private static void DIV() => stack.Push((byte)(stack.Pop() / stack.Pop()));
+    private static void MOD() => stack.Push((byte)(stack.Pop() % stack.Pop()));
     private static void CCF() => conditional_flag = false;
     private static void CMPE() => conditional_flag = stack.Pop() == stack.Pop();
     private static void CMPL() => conditional_flag = stack.Pop() < stack.Pop();

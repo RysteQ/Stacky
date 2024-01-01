@@ -1,25 +1,25 @@
-﻿namespace Stacky.Models;
+﻿namespace Stacky.src.Models;
 
 public class Stack
 {
     public Stack()
     {
-        this.data = new byte[65536];
-        this.sp = 0;
+        data = new byte[65536];
+        sp = 0;
     }
 
     public void Push(byte value)
     {
-        if (this.sp < this.data.Length)
-            this.data[this.sp++] = value;
+        if (sp < data.Length)
+            data[sp++] = value;
         else
             throw new Exception("The SP cannot be more than 65535");
     }
 
     public byte Pop()
     {
-        if (this.sp > 0)
-            return this.data[--this.sp];
+        if (sp > 0)
+            return data[--sp];
         else
             throw new Exception("The SP cannot be less than zero");
     }
