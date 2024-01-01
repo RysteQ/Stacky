@@ -1,6 +1,6 @@
-﻿using Stacky.src.Models;
+﻿using Stacky.Models;
 
-namespace Stacky.src.Stacky;
+namespace Stacky.Stacky;
 
 public static class Runner
 {

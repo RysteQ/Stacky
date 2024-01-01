@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace Stacky.src.Services;
+namespace Stacky.Services;
 
 public static class ErrorInformer
 {

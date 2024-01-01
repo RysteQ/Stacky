@@ -1,6 +1,6 @@
-﻿using Stacky.src.Models;
-using Stacky.src.Services;
-using Stacky.src.Stacky;
+﻿using Stacky.Models;
+using Stacky.Services;
+using Stacky.Stacky;
 
 if (Environment.GetCommandLineArgs().Length != 2)
 {

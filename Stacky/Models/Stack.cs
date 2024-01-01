@@ -1,4 +1,4 @@
-﻿namespace Stacky.src.Models;
+﻿namespace Stacky.Models;
 
 public class Stack
 {
