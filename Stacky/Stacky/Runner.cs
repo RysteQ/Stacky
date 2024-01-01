@@ -10,7 +10,7 @@ public static class Runner
         {
             Instruction current_instruction = instructions[i];
 
-            switch (instructions[i].Opcode)
+            switch (current_instruction.Opcode)
             {
                 case Opcode.PUSH: PUSH(current_instruction.Value); break;
                 case Opcode.RPUSH: RPUSH(); break;
@@ -29,8 +29,8 @@ public static class Runner
                 case Opcode.CMPG: CMPG(); break;
                 case Opcode.NEWL: NEWL(); break;
                 case Opcode.HAULT: HAULT(current_instruction.Value); break;
-                case Opcode.JC: i = JC(instructions, i); break;
-                case Opcode.JMP: i = JMP(instructions, i); break;
+                case Opcode.JC: i = JC(i, current_instruction.Value); break;
+                case Opcode.JMP: i = JMP(i); break;
             }
         }
 
@@ -52,8 +52,8 @@ public static class Runner
     private static void CMPL() => conditional_flag = stack.Pop() < stack.Pop();
     private static void CMPG() => conditional_flag = stack.Pop() > stack.Pop();
     private static void NEWL() => Console.WriteLine();
-    private static void HAULT(byte exit_code) => Environment.Exit(exit_code);
-    private static int JMP(List<Instruction> instructions, int current_instruction) => instructions.Where(instruction => instruction.Name == instructions[current_instruction].Name).First().Line;
+    private static int JMP(int target_instruction) => target_instruction - 2;
+    private static int JC(int current_instruction, int target_instruction) => conditional_flag ? target_instruction - 2 : current_instruction;
 
     private static void COPY()
     {
@@ -63,12 +63,10 @@ public static class Runner
         stack.Push(copy);
     }
 
-    private static int JC(List<Instruction> instructions, int current_instruction)
+    private static void HAULT(byte exit_code)
     {
-        if (conditional_flag == false)
-            return current_instruction;
-
-        return instructions.Where(instruction => instruction.Name == instructions[current_instruction].Name).First().Line;
+        Console.ReadKey();
+        Environment.Exit(exit_code);
     }
 
     private static Stack stack = new();

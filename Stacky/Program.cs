@@ -17,13 +17,15 @@ if (status.Success == false)
 {
     ErrorInformer.Inform($"Error at line {status.LineOfFailure}", ConsoleColor.Red);
     Environment.Exit(-1);
-} else
+}
+else
     instructions = Interpreter.Analyze(file_data);
 
 try
 {
     Runner.Execute(instructions);
-} catch (Exception ex)
+}
+catch (Exception ex)
 {
     ErrorInformer.Inform(ex.Message, ConsoleColor.Red);
     Environment.Exit(-1);
